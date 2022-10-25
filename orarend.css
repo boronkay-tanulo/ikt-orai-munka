@@ -1,0 +1,21 @@
+table {
+    border: 3px solid black;
+    border-collapse: collapse; /* ennek csak a table részben lesz hatása  */
+    font-family: 'Arial', Calibri, sans-serif;
+    background-color: beige;
+}
+
+td, th {
+    border: 1px solid white;
+}
+
+th {
+    background-color: black;
+    color: beige;
+}
+
+th {
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: blue;
+}
