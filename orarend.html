@@ -3,14 +3,14 @@
     <head>
         <link rel="stylesheet" href="orarend.css">
     </head>
-    <body>
+    <body onload="Betoltes()"> <!-- Hozzárendelem a függvényt -->
         <table> <!-- táblázat ; border - szegély -->
             <caption>Órarend</caption> <!-- A táblázat címe -->
             <tr>
-                <th></th> <!-- ezek fejléc cellák -->
+                <td class="sarok"></td> <!-- ezek fejléc cellák -->
                 <th>Hétfő</th>
                 <th>Kedd</th>
-                <th>Szerda</th>
+                <th style="color:dodgerblue">Szerda</th>
                 <th>Csütörtök</th>
                 <th>Péntek</th>
             </tr> <!-- ez egy sor -->
@@ -68,8 +68,29 @@
                 <td>Komplex természettudomány</td> <!-- Kedd -->
                 <td>IKT projektmunka</td> <!-- Szerda -->
                 <td></td> <!-- Csütörtök -->
-                <td>Digitális kultúra</td> <!-- Péntek -->
+                <td class="sarok">Digitális kultúra</td> <!-- Péntek -->
             </tr>
         </table>
     </body>
+    <script>
+        function Betoltes() {
+            // C a dokumentum összes táblázatát tartalmazza (jelen esetben ez egy)
+            let C = document.getElementsByTagName("table");
+            // végig megy a sorokon
+            for (let i = 1; i < C[0].rows.length; i++) {
+                // végig megy a cellákon
+                for (let j = 0; j < C[0].rows[i].cells.length; j++) {
+                    // megnézi, hogy a cella üres-e
+                    if (C[0].rows[i].cells[j].innerHTML == "") {
+                        // beállítja a hátterét szürkére a cellának
+                        C[0].rows[i].cells[j].style.backgroundColor = "grey";
+                        // beállítja a betűszínét sárgára a cellának
+                        C[0].rows[i].cells[j].style.color = "yellow";
+                        // a cella tartalmát beállítja
+                        C[0].rows[i].cells[j].innerHTML = "lyukas óra"
+                    }
+                }
+            }
+        }
+    </script>
 </html>
